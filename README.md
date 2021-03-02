@@ -44,3 +44,40 @@ Here is my finished product:
 For all documenation and source code for Cross-Seed please visit [Here](https://github.com/mmgoodnow/cross-seed)
 
 ## Cross-Seed Configuration
+1. Now we need to make a config file for Cross-Seed to work with.
+2. Here is a the config that I'm using you can download it [here](/files/config.js) and place it in your appdata folder that cross-seed should have created `/mnt/user/appdata/cross-seed/`
+  ```module.exports = {
+	configVersion: 1,
+
+	jackettServerUrl: "http://<Jackett IP Address>:9117",
+	jackettApiKey: "<Jackett API>",
+
+	// Pause at least this much in between each Jackett search. Higher is safer.
+	// It is not recommended to set this to less than 2 seconds.
+	delay: 30,
+
+	// Trackers to search
+	// Set to [] if you want to search all trackers.
+	// Tracker ids can be found in their Torznab feed paths
+	trackers: ["beyond-hd-oneurl", "broadcasthenet", "passthepopcorn", "hdtorrents", "tvvault", "animebytes", "orpheus", "blutopia"],
+
+	// directory containing torrent files.
+	// For rtorrent, this is your session directory
+	// as configured in your .rtorrent.rc file.
+	// For deluge, this is ~/.config/deluge/state.
+	torrentDir: "/input",
+
+	// where to put the torrent files that cross-seed finds for you.
+	outputDir: "/output",
+
+	// Whether to search for single episode torrents
+	includeEpisodes: true,
+
+	// search for all torrents, regardless of their contents
+	// this option overrides includeEpisodes.
+	searchAll: false,
+```
+**Note**
+The outputDir and torrentDir are the same as the Output and Input container paths that we set up earlier. If this is different for you this will need to be updated
+
+## qBit Management
