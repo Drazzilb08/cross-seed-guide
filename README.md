@@ -81,7 +81,9 @@ For all documenation and source code for Cross-Seed please visit [Here](https://
 ### Setting up the container to run on an interval
 The way this container works is it's a NODE.js script wrapped into a container. This means that as soon as the script is done running the container is no longer running. For this reason we need to set up a script to start the container and run the contatiner at an interval.
 For this we'll need
+
 [User Scripts](https://forums.unraid.net/topic/48286-plugin-ca-user-scripts/)
+
 You can simply search this in the apps store and install it
 
 Now that User scripts is installed you'll need to add a new script (user scripts will be found under the **Settings** tab.
@@ -109,3 +111,89 @@ Click **Apply** in the lower left and you're done with Cross-Seed
 The outputDir and torrentDir are the same as the Output and Input container paths that we set up earlier. If this is different for you this will need to be updated
 
 ## qBit Management
+This script is managed and maintained [Here](https://github.com/Visorask/qbit_manage)
+
+First we are goign to need [Nerd Pack](https://forums.unraid.net/topic/35866-unraid-6-nerdpack-cli-tools-iftop-iotop-screen-kbd-etc/)
+This can be also download from the **Apps* store
+
+Nerd pack will be located in the settings tab
+When you open it up you'll see a bunch of packages that you can install. We'll need
+
+`python-pip`
+`python3`
+
+
+Now to set a schedule for this bash script to run. Select **At First Array Start Only** This will run this script every time the array starts on every boot
+
+To get this running in unRAID go ahead and download the repo to your computer. then take all the data from the zip file and place it somewhere on your server.
+
+I placed mines in `/mnt/user/data/scripts/qbit/`
+
+Now we need to install the requirements for this script. 
+
+Head back over to **User Scripts**
+
+Create a new script: I named mines `install-requirements`
+
+In the mew text field you'll need to place:
+```
+#!/bin/bash
+echo "Installing required packages"
+python3.9 -m pip install -r /mnt/user/path/to/requirements.txt 
+echo "Required packages installed"
+```
+Replace `path/to/` with your path example mines `/data/scripts/qbit/` or `/mnt/user/data/scripts/qbit/requirements.txt`
+
+Now click **Save Changes**
+
+Now we need to edit the config file:
+
+```yaml
+qbt:
+  host: '<qbit address>:8080'
+  user: 'user'
+  pass: 'password'
+
+directory:
+  # Do not remove these
+  # Cross-seed var: </your/path/here/> This is where Cross-Seed outputs its torrents
+  cross_seed: '/mnt/user/path/to/output'
+# Category/Pathing Parameters
+cat:
+  # <Category Name> : <save_path> #Path of your save directory. Can be a keyword or full path
+  bib-upload: 'bib-upload'
+  comics: 'comics'
+  completed-ebooks: 'completetd-ebooks'
+  completed-movies: 'completed-movies'
+  completed-music: 'completed-music'
+  completed-series: 'completed-series'
+  ebooks: 'ebooks'
+  movies: 'movies'
+  music: 'music'
+  ptp-upload: 'ptp-upload'
+  series: 'series'
+  tmp: 'tmp'
+
+
+# Tag Parameters
+tags:
+  # <Tracker URL Keyword>: <Tag Name>
+  beyond-hd: Beyond-HD
+  animebytes.tv: AnimeBytes
+  blutopia: Blutopia
+  hdts: HD-Torrents
+  landof.tv: BroadcasTheNet
+  passthepopcorn: PassThePopcorn
+  stackoverflow: IPTorrents
+  morethantv: MoreThanTV
+  myanonamouse: MyAnonaMouse
+  opsfet: Orpheus
+  torrentleech: TorrentLeech
+  tleechreload: TorrentLeech
+  tv-vault: TV-Vault
+  ```
+  This is an example of mines. You'll need to ensure you put all your catagories into the `Cat` Field
+  
+  Once you've got the config file set up you should be all set. 
+  Don't forget to set a cron schedule mines `*/30 * * * *` <-- Runs every 30 min
+
