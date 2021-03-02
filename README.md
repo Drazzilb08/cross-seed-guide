@@ -194,6 +194,41 @@ tags:
   ```
   This is an example of mines. You'll need to ensure you put all your catagories into the `Cat` Field
   
+  Now we need to go back to **User Scripts** and create our script to run this script 
+  **Add a new script**
+  I named mines `auto-manage-qbittorrent`
+  Here is my script:
+  ```bash
+  #!/bin/bash
+echo "Running qBitTorrent Management"
+python3.9 /mnt/user/data/scripts/qbit/qbit_manage.py -c /mnt/user/data/scripts/qbit/config.yml -ms -l /mnt/user/data/scripts/qbit/activity.log
+echo "qBitTorrent Management Completed"
+```
+However, at the core you'll want 
+```
+python3.9 /<path to script>/qbit_manage.py -c /<path to config>/config.yml -ms -l /<path to where you want log file>/activity.log
+```
+if you want to change the arguments such as the `-ms` a full list of arguments can be seen below
+```
+-h, --help            show this help message and exit
+  -c CONFIG, --config-file CONFIG
+                        This is used if you want to use a different name for your config.yml. Example: tv.yml
+  -l LOGFILE, --log-file LOGFILE
+                        This is used if you want to use a different name for your log file. Example: tv.log
+  -m, --manage          Use this if you would like to update your tags AND categories AND remove unregistered
+                        torrents.
+  -s, --cross-seed      Use this after running cross-seed script to organize your torrents into specified watch
+                        folders.
+  -re, --recheck        Recheck paused torrents sorted by lowest size. Resume if Completed.
+  -g, --cat-update      Use this if you would like to update your categories.
+  -t, --tag-update      Use this if you would like to update your tags.
+  -r, --rem-unregistered
+                        Use this if you would like to remove unregistered torrents.
+  --dry-run             If you would like to see what is gonna happen but not actually delete or tag/categorize
+                        anything.
+  --log LOGLEVEL        Change your log level.
+ ```
+  
   Once you've got the config file set up you should be all set. 
   Don't forget to set a cron schedule mines `*/30 * * * *` <-- Runs every 30 min
 
