@@ -1,6 +1,6 @@
 # cross-seed-guide
 
-**This guide is intended for usage with the unRAID OS for working**
+**This guide is intended for usage with the unRAID OS**
 
 ## Cross-Seed
 1. You'll need to install cross-seed onto your unRAID system
