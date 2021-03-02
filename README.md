@@ -233,4 +233,11 @@ if you want to change the arguments such as the `-ms` a full list of arguments c
   
   Once you've got the config file set up you should be all set. 
   Don't forget to set a cron schedule mines `*/30 * * * *` <-- Runs every 30 min
+  
+  
+  Final note:
+  Now these two scripts will automate probably about 95-99% of your cross-seeding operations. However, in my experiance you'll still recieve some files that don't quite add up no matter what. All I do is remove the cross-seeded file and move on to the next one. I feel there isn't much of a reason to bang my head against the table to fix one file when in the grand scheme of things it won't make much of a difference. 
+  To check on your cross-seed container simply open the Logs and see what it's doing. It's quite verbose on what's going on. 
+  
+  This guide is written for those who use unRAID OS. I'm sure these scripts will work on other OS. That is just outside the scope of this guide.
 
