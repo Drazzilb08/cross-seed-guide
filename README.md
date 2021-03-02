@@ -2,7 +2,7 @@
 
 **This guide is intended for usage with the unRAID OS**
 
-## Cross-Seed
+## Cross-Seed Installation
 1. You'll need to install cross-seed onto your unRAID system
   1. Navigate to your **APPS** tab
     * Now you'll need to download this directly from docker hub as this is not apart of the normal templates
@@ -42,3 +42,5 @@ Here is my finished product:
 
 
 For all documenation and source code for Cross-Seed please visit [Here](https://github.com/mmgoodnow/cross-seed)
+
+## Cross-Seed Configuration
