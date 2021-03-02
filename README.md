@@ -115,7 +115,7 @@ The outputDir and torrentDir are the same as the Output and Input container path
 This script is managed and maintained [Here](https://github.com/Visorask/qbit_manage)
 
 First we are goign to need [Nerd Pack](https://forums.unraid.net/topic/35866-unraid-6-nerdpack-cli-tools-iftop-iotop-screen-kbd-etc/)
-This can be also download from the **Apps* store
+This can be also download from the **Apps** store
 
 Nerd pack will be located in the settings tab
 When you open it up you'll see a bunch of packages that you can install. We'll need
