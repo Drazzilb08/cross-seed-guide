@@ -47,7 +47,8 @@ For all documenation and source code for Cross-Seed please visit [Here](https://
 ### Cross-Seed Configuration
 1. Now we need to make a config file for Cross-Seed to work with.
 2. Here is a the config that I'm using you can download it [here](/files/config.js) and place it in your appdata folder that cross-seed should have created `/mnt/user/appdata/cross-seed/`
-  ```module.exports = {
+  ```javascript
+  module.exports = {
 	configVersion: 1,
 
 	jackettServerUrl: "http://<Jackett IP Address>:9117",
@@ -92,7 +93,7 @@ Within User Scripts click **Add New Script**
 A pop-up window will appear and ask you what you want to call your script
 I Simply called it `start-cross-seed-container `
 Within the script box you'll need to put:
-```
+```bash
 #!/bin/bash
 #start cross-seed container
 echo "Starting Cross-Seed docker container"
@@ -119,8 +120,9 @@ This can be also download from the **Apps* store
 Nerd pack will be located in the settings tab
 When you open it up you'll see a bunch of packages that you can install. We'll need
 
-`python-pip`
-`python3`
+* `python-pip`
+
+* `python3`
 
 
 Now to set a schedule for this bash script to run. Select **At First Array Start Only** This will run this script every time the array starts on every boot
@@ -136,7 +138,7 @@ Head back over to **User Scripts**
 Create a new script: I named mines `install-requirements`
 
 In the mew text field you'll need to place:
-```
+```bash
 #!/bin/bash
 echo "Installing required packages"
 python3.9 -m pip install -r /mnt/user/path/to/requirements.txt 
