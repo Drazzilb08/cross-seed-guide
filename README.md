@@ -11,11 +11,11 @@
   3. Where it says `Enable additional search results from dockerHub:` select **Yes** then click **Apply** then **Done**
   4. Next in the search bar that you would normally use to search an app. Type in `cross-seed` you're going to want the one that says `mmgoodnow - DockerHub Repository`
   5. Now with any container added directly from dockerhub there aren't going to be any prefilled sections like you'd normally see. We'll have to add them
-    1. Let's go ahead and add our paths: Select **Add another Path, Port, Variable, Label or Device** 
-      1. Your container path should be for the `/input` (where the program is going to get its torrents to compare from)
-      2. The host path is where your qBitTorrent holds all of its currently running torrents for me it is
+     1. Let's go ahead and add our paths: Select **Add another Path, Port, Variable, Label or Device** 
+        1. Your container path should be for the `/input` (where the program is going to get its torrents to compare from)
+        2. The host path is where your qBitTorrent holds all of its currently running torrents for me it is
         `/mnt/user/appdata/binhex-qbittorrentvpn/qBittorrent/data/BT_backup/`
-      3. For access mode `Read Only`
+        3. For access mode `Read Only`
       
 ![input configuration!](/img/input.png "Input Settings")
       
