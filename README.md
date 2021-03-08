@@ -111,33 +111,32 @@ Click **Apply** in the lower left and you're done with Cross-Seed
 **Note**
 The outputDir and torrentDir are the same as the Output and Input container paths that we set up earlier. If this is different for you this will need to be updated
 
-## qBit Management
-This script is managed and maintained [Here](https://github.com/Visorask/qbit_manage)
+Here we are going to talk about using qBit Manager on unRAID
 
-First we are goign to need [Nerd Pack](https://forums.unraid.net/topic/35866-unraid-6-nerdpack-cli-tools-iftop-iotop-screen-kbd-etc/)
+## qBit Management
+First we are going to need [Nerd Pack](https://forums.unraid.net/topic/35866-unraid-6-nerdpack-cli-tools-iftop-iotop-screen-kbd-etc/). <br>
 This can be also download from the **Apps** store
 
 Nerd pack will be located in the settings tab
-When you open it up you'll see a bunch of packages that you can install. We'll need
+When you open it up you'll see a bunch of packages that you can install. <br> We'll need:
 
 * `python-pip`
 
 * `python3`
 
+To get this running in unRAID go ahead and download the repo to your computer. 
 
-Now to set a schedule for this bash script to run. Select **At First Array Start Only** This will run this script every time the array starts on every boot
+Then take all the data from the zip file and place it somewhere on your server.
 
-To get this running in unRAID go ahead and download the repo to your computer. then take all the data from the zip file and place it somewhere on your server.
-
-I placed mines in `/mnt/user/data/scripts/qbit/`
+An example of this would be: `/mnt/user/data/scripts/qbit/`
 
 Now we need to install the requirements for this script. 
 
 Head back over to **User Scripts**
 
-Create a new script: I named mines `install-requirements`
+Create a new script: An example of this would be `install-requirements`
 
-In the mew text field you'll need to place:
+In the new text field you'll need to place:
 ```bash
 #!/bin/bash
 echo "Installing required packages"
@@ -148,8 +147,13 @@ Replace `path/to/` with your path example mines `/data/scripts/qbit/` or `/mnt/u
 
 Now click **Save Changes**
 
-Now we need to edit the config file:
+Now to set a schedule for this bash script to run. 
 
+Select **At First Array Start Only** This will run this script every time the array starts on every boot
+
+Now we need to edit the config file that came with the zip file.
+
+Below you can see an example of one. Note you'll need to add **ALL** of your categories.
 ```yaml
 qbt:
   host: '<qbit address>:8080'
@@ -194,11 +198,13 @@ tags:
   tleechreload: TorrentLeech
   tv-vault: TV-Vault
   ```
-  This is an example of mines. You'll need to ensure you put all your catagories into the `Cat` Field
+  **NOTE:** The cross-seed would be the output of any cross-seed script that you may have running. This script was originally designed to work with this [Cross-Seed](https://github.com/mmgoodnow/cross-seed) script working in `Search` mode  (since at this time qBit integration is not supported *yet*)
   
-  Now we need to go back to **User Scripts** and create our script to run this script 
+  Now we need to go back to **User Scripts** and create our script to run this script
+
   **Add a new script**
-  I named mines `auto-manage-qbittorrent`
+
+  You can name yours something like: `auto-manage-qbittorrent`
   Here is my script:
   ```bash
   #!/bin/bash
@@ -234,10 +240,4 @@ if you want to change the arguments such as the `-ms` a full list of arguments c
   Once you've got the config file set up you should be all set. 
   Don't forget to set a cron schedule mines <br>`*/30 * * * *` <-- Runs every 30 min
   
-  
-  Final note:<br>
-  Now these two scripts will automate probably about 95-99% of your cross-seeding operations. If you do run into some issues drop a line on Cross-Seed's GitHub Repository as the goal of his script is to not have any false posatives and to become 100% automated. 
-  To check on your cross-seed container simply open the Logs and see what it's doing. It's quite verbose on what's going on. 
-  
-  This guide is written for those who use unRAID OS. I'm sure these scripts will work on other OS. That is just outside the scope of this guide.
-
+ 
