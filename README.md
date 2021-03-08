@@ -1,5 +1,11 @@
 # cross-seed-guide
 
+**WARNING**
+---
+This guide is a work in progress as these softwares are constantly changing. This is simply a guide (should not be taken as the gospel) and should be used at your own risk. I do not take any responsability for anything you do to your system or to your trackers (if they ban you for some reason). I will say this set up works for me. In the end be smart about what your doing and take things slow.
+---
+**WARNING**
+
 **This guide is intended for usage with the unRAID OS**
 ## Cross-Seed Installation and Setup
 
