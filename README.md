@@ -129,6 +129,8 @@ When you open it up you'll see a bunch of packages that you can install. <br> We
 
 * `python3`
 
+* `python-setuptools
+
 To get this running in unRAID go ahead and download the [repo](https://github.com/StuffAnThings/qbit_manage) to your computer. 
 
 Then take all the data from the zip file and place it somewhere on your server.
@@ -145,7 +147,7 @@ In the new text field you'll need to place:
 ```bash
 #!/bin/bash
 echo "Installing required packages"
-python3.9 -m pip install -r /mnt/user/path/to/requirements.txt 
+python3 -m pip install -r /mnt/user/path/to/requirements.txt 
 echo "Required packages installed"
 ```
 Replace `path/to/` with your path example mines `/data/scripts/qbit/` or `/mnt/user/data/scripts/qbit/requirements.txt`
@@ -214,12 +216,12 @@ tags:
   ```bash
   #!/bin/bash
 echo "Running qBitTorrent Management"
-python3.9 /mnt/user/data/scripts/qbit/qbit_manage.py -c /mnt/user/data/scripts/qbit/config.yml -ms -l /mnt/user/data/scripts/qbit/activity.log
+python3 /mnt/user/data/scripts/qbit/qbit_manage.py -c /mnt/user/data/scripts/qbit/config.yml -ms -l /mnt/user/data/scripts/qbit/activity.log
 echo "qBitTorrent Management Completed"
 ```
 However, at the core you'll want 
 ```
-python3.9 /<path to script>/qbit_manage.py -c /<path to config>/config.yml -ms -l /<path to where you want log file>/activity.log
+python3 /<path to script>/qbit_manage.py -c /<path to config>/config.yml -ms -l /<path to where you want log file>/activity.log
 ```
 if you want to change the arguments such as the `-ms` a full list of arguments can be seen below
 ```
