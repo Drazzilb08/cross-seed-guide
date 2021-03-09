@@ -129,7 +129,7 @@ When you open it up you'll see a bunch of packages that you can install. <br> We
 
 * `python3`
 
-To get this running in unRAID go ahead and download the repo to your computer. 
+To get this running in unRAID go ahead and download the [repo](https://github.com/StuffAnThings/qbit_manage) to your computer. 
 
 Then take all the data from the zip file and place it somewhere on your server.
 
