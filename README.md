@@ -129,7 +129,7 @@ When you open it up you'll see a bunch of packages that you can install. <br> We
 
 * `python3`
 
-* `python-setuptools
+* `python-setuptools`
 
 To get this running in unRAID go ahead and download the [repo](https://github.com/StuffAnThings/qbit_manage) to your computer. 
 
